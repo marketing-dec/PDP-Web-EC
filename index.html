@@ -80,7 +80,7 @@
         </div>
         <aside class="lead-card" id="contacto" aria-label="Formulario de solicitud de información">
           <div class="form-tabs" role="tablist" aria-label="Tipo de solicitud"><button class="form-tab" id="tab-persona" type="button" role="tab" aria-selected="true" aria-controls="panel-persona">Persona</button><button class="form-tab" id="tab-empresa" type="button" role="tab" aria-selected="false" aria-controls="panel-empresa" tabindex="-1">Empresa</button></div>
-          <div class="lead-head"><h2>Déjanos tus datos y un asesor te contactará para aclarar tus dudas sobre el programa.</h2></div>
+          <div class="lead-head"><h2 id="lead-caption">Déjanos tus datos y un asesor te contactará para aclarar tus dudas sobre el programa.</h2></div>
           <form class="form" id="lead-form">
             <div class="form-panel" id="panel-persona" role="tabpanel" aria-labelledby="tab-persona">
               <div class="fields-2"><div class="field"><label for="nombre">Nombre</label><input id="nombre" name="nombre" autocomplete="given-name" placeholder="Nombre" required></div><div class="field"><label for="apellido">Apellido</label><input id="apellido" name="apellido" autocomplete="family-name" placeholder="Apellido" required></div></div>
@@ -88,6 +88,7 @@
               <div class="field"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" placeholder="Ingresa tu mensaje"></textarea></div>
             </div>
             <div class="form-panel" id="panel-empresa" role="tabpanel" aria-labelledby="tab-empresa" hidden>
+              <div class="field"><label for="tipo-solicitud">Tipo de solicitud</label><select id="tipo-solicitud" name="tipo_solicitud" required disabled><option value="" selected disabled>Selecciona una opción</option><option>Capacitación para un equipo</option><option>Cotización</option><option>Programa diseñado a medida</option><option>Convenio o beneficio corporativo</option><option>Otra solicitud</option></select></div>
               <div class="fields-2"><div class="field"><label for="empresa">Empresa</label><input id="empresa" name="empresa" autocomplete="organization" placeholder="Nombre de la empresa" required disabled></div><div class="field"><label for="rut-empresa">RUT empresa</label><input id="rut-empresa" name="rut_empresa" placeholder="76.000.000-0" required disabled></div></div>
               <div class="fields-2"><div class="field"><label for="contacto-empresa">Nombre de contacto</label><input id="contacto-empresa" name="contacto_empresa" autocomplete="name" placeholder="Nombre y apellido" required disabled></div><div class="field"><label for="correo-empresa">Correo corporativo</label><input id="correo-empresa" name="correo_empresa" type="email" autocomplete="email" placeholder="nombre@empresa.cl" required disabled></div></div>
               <div class="field"><label for="telefono-empresa">Teléfono</label><input id="telefono-empresa" name="telefono_empresa" type="tel" autocomplete="tel" placeholder="+56 9 0000 0000" disabled></div>
@@ -274,7 +275,8 @@
     nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('open');menuButton.setAttribute('aria-expanded','false');}));
     const formTabs=[...document.querySelectorAll('.form-tab')];
     const leadSubmit=document.querySelector('#lead-submit');
-    const activateFormTab=tab=>{formTabs.forEach(button=>{const active=button===tab;button.setAttribute('aria-selected',String(active));button.tabIndex=active?0:-1;const panel=document.querySelector(`#${button.getAttribute('aria-controls')}`);panel.hidden=!active;panel.querySelectorAll('input,textarea,select').forEach(field=>field.disabled=!active);});leadSubmit.textContent=tab.id==='tab-empresa'?'Contáctenme':'Enviar solicitud';};
+    const leadCaption=document.querySelector('#lead-caption');
+    const activateFormTab=tab=>{const company=tab.id==='tab-empresa';formTabs.forEach(button=>{const active=button===tab;button.setAttribute('aria-selected',String(active));button.tabIndex=active?0:-1;const panel=document.querySelector(`#${button.getAttribute('aria-controls')}`);panel.hidden=!active;panel.querySelectorAll('input,textarea,select').forEach(field=>field.disabled=!active);});leadCaption.textContent=company?'Cuéntanos qué necesita tu organización y un asesor te contactará.':'Déjanos tus datos y un asesor te contactará para aclarar tus dudas sobre el programa.';leadSubmit.textContent=company?'Solicitar asesoría':'Enviar solicitud';};
     formTabs.forEach((tab,index)=>{tab.addEventListener('click',()=>activateFormTab(tab));tab.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight'].includes(event.key))return;event.preventDefault();const direction=event.key==='ArrowRight'?1:-1;const next=formTabs[(index+direction+formTabs.length)%formTabs.length];activateFormTab(next);next.focus();});});
     document.querySelectorAll('[data-open-company]').forEach(link=>link.addEventListener('click',()=>activateFormTab(document.querySelector('#tab-empresa'))));
     document.querySelectorAll('.faq-q').forEach(button=>button.addEventListener('click',()=>{const item=button.closest('.faq-item');const open=item.classList.toggle('open');button.setAttribute('aria-expanded',String(open));}));
