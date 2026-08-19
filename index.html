@@ -63,11 +63,11 @@
     .brochure-actions{display:flex;flex-wrap:wrap;gap:12px}.podcast-modal{width:min(calc(100% - 32px),520px);padding:0;border:0;border-radius:var(--radius);color:var(--ink);box-shadow:0 18px 50px rgba(3,18,46,.3)}.podcast-modal::backdrop{background:rgba(3,18,46,.72)}.podcast-card{position:relative;padding:32px}.podcast-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--blue-2);font-size:22px;cursor:pointer}.podcast-card h2{padding-right:42px;color:var(--blue-2);font-size:25px;line-height:32px}.podcast-card p{margin:8px 0 20px;color:var(--muted);font-size:14px;line-height:22px}.podcast-links{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.podcast-link{min-height:58px;display:flex;align-items:center;justify-content:center;gap:9px;padding:10px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;color:var(--blue-2);font-size:13px;font-weight:700;text-decoration:none}.podcast-link:hover{border-color:var(--blue);background:var(--sky)}.podcast-link img{width:24px;height:24px;display:block;object-fit:contain;flex:none}
     @media(max-width:620px){.podcast-card{padding:28px 20px 22px}.podcast-links{grid-template-columns:1fr}.podcast-link{justify-content:flex-start;padding-inline:16px}}
     /* Hero information panel: translucent UC light blue treatment */
-    .facts{border-color:rgba(165,205,235,.7);background:rgba(220,238,251,.88);box-shadow:0 8px 24px rgba(3,18,46,.1);backdrop-filter:blur(5px)}
-    .fact{border-right-color:rgba(93,147,194,.28)}
-    .fact-icon{background:rgba(255,255,255,.48)}
-    .fact-action{border-right-color:rgba(93,147,194,.28);background:rgba(196,226,247,.46)}
-    .fact-action:hover{background:rgba(182,218,244,.68)}
+    .facts{border-color:rgba(112,172,217,.82);background:rgba(187,220,244,.96);box-shadow:0 8px 24px rgba(3,18,46,.1);backdrop-filter:blur(5px)}
+    .fact{border-right-color:rgba(51,113,164,.34)}
+    .fact-icon{background:rgba(255,255,255,.6)}
+    .fact-action{border-right-color:rgba(51,113,164,.34);background:rgba(157,204,238,.58)}
+    .fact-action:hover{background:rgba(143,195,233,.76)}
     @media(max-width:620px){.fact{border-bottom-color:rgba(93,147,194,.28)!important}}
   </style>
 </head>
@@ -105,7 +105,7 @@
           <div class="hero-tags"><span class="eyebrow">Nuevo</span><span class="eyebrow eyebrow-sence">SENCE</span></div>
           <h1>Diplomado en Ciencia de Datos Aplicada a Negocios</h1>
           <p class="hero-lead">Aplicar minería de datos, integrar analítica de negocios y gestionar decisiones basadas en datos para tu desempeño profesional.</p>
-          <div class="hero-cta-block"><div class="hero-start"><small>Próximo inicio</small><strong>10 de noviembre de 2026</strong><button class="fact-link" type="button" data-dates-toggle aria-expanded="false" aria-controls="dates-inline-panel">Ver más fechas</button></div><div class="hero-actions"><a class="btn btn-yellow" href="#contacto">Postular</a><a class="btn btn-outline" href="#brochure-title">Descargar Programa</a></div></div>
+          <div class="hero-cta-block"><div class="hero-start"><small>Próximo inicio</small><strong data-program-start>10 de noviembre de 2026</strong><button class="fact-link" type="button" data-dates-toggle aria-expanded="false" aria-controls="dates-inline-panel">Ver más fechas</button></div><div class="hero-actions"><a class="btn btn-yellow" href="#contacto">Postular</a><a class="btn btn-outline" href="#brochure-title">Descargar Programa</a></div></div>
           <div class="hero-price-block" aria-label="Valor del programa con descuento por matrícula anticipada">
             <span class="hero-price-label">Descuento por matrícula anticipada</span>
             <del class="hero-price-before">$1.200.000</del>
@@ -117,7 +117,7 @@
         <div class="hero-program-info">
           <div class="facts" aria-label="Información principal del programa">
             <div class="fact"><span class="fact-icon" aria-hidden="true"><i class="fi fi-rr-laptop"></i></span><small>Modalidad</small><strong>Online con clases en vivo</strong><small class="fact-detail fact-location-label">Lugar de realización</small><strong>Campus lorem ipsum</strong></div>
-            <div class="fact"><span class="fact-icon" aria-hidden="true"><i class="fi fi-rr-clock"></i></span><small>Duración y horario</small><strong>4 meses · 80 horas</strong><span class="fact-detail">Lun. y mié. · 19:30–21:30</span></div>
+            <div class="fact"><span class="fact-icon" aria-hidden="true"><i class="fi fi-rr-clock"></i></span><small>Duración y horario</small><strong>4 meses · 80 horas</strong><span class="fact-detail" data-program-schedule>Lun. y mié. · 19:30–21:30</span></div>
             <button class="fact fact-action" type="button" data-finance-open aria-haspopup="dialog"><span class="fact-icon" aria-hidden="true"><i class="fi fi-rr-badge-percent"></i></span><small>Beneficios</small><strong>Descuentos y financiamientos</strong><span class="fact-cta">Ver opciones</span></button>
             <div class="fact fact-team"><span class="fact-icon" aria-hidden="true"><i class="fi fi-rr-briefcase"></i></span><small>Para empresas</small><strong>¿Te interesa inscribir a tu equipo?</strong><button class="fact-link" type="button" data-company-open aria-haspopup="dialog">Solicitar propuesta</button></div>
           </div>
@@ -190,8 +190,8 @@
         </div>
         <div class="dates-highlight-panel" id="dates-inline-panel" hidden>
           <div class="dates-inline-list" role="radiogroup" aria-label="Seleccionar fecha de inicio">
-            <label class="dates-inline-option"><input type="radio" name="fecha_inicio" value="2027-01-12"><span><strong>12 de enero de 2027</strong><span>Lun. y mié. · 18:30–20:30</span></span></label>
-            <label class="dates-inline-option"><input type="radio" name="fecha_inicio" value="2027-03-09"><span><strong>09 de marzo de 2027</strong><span>Mar. y jue. · 19:00–21:00</span></span></label>
+            <label class="dates-inline-option"><input type="radio" name="fecha_inicio" value="2027-01-12" data-start="12 de enero de 2027" data-range="12 de ene. de 2027 al 12 de may. de 2027" data-schedule="Lun. y mié. · 18:30–20:30"><span><strong>12 de enero de 2027</strong><span>Lun. y mié. · 18:30–20:30</span></span></label>
+            <label class="dates-inline-option"><input type="radio" name="fecha_inicio" value="2027-03-09" data-start="09 de marzo de 2027" data-range="09 de mar. de 2027 al 09 de jul. de 2027" data-schedule="Mar. y jue. · 19:00–21:00"><span><strong>09 de marzo de 2027</strong><span>Mar. y jue. · 19:00–21:00</span></span></label>
           </div>
         </div>
       </div>
@@ -405,7 +405,7 @@
 
   <aside class="sticky-enroll" id="sticky-enroll" aria-label="Información rápida de matrícula" aria-hidden="true">
     <div class="container sticky-enroll-inner">
-      <div class="sticky-program"><small>Diplomado</small><strong>Ciencia de Datos Aplicada a Negocios</strong><div class="sticky-details"><span>10 de nov. de 2026 al 10 de mar. de 2027</span><span>Online con clases en vivo</span></div><div class="sticky-mobile-summary"><div class="sticky-mobile-copy"><strong class="sticky-mobile-name">Ciencia de Datos Aplicada a Negocios</strong><div class="sticky-mobile-primary"><span>10 de nov. de 2026 al 10 de mar. de 2027</span><span>Online</span></div></div><button class="sticky-mobile-toggle" type="button" aria-label="Mostrar más información del programa" aria-expanded="false" aria-controls="sticky-mobile-secondary"><span aria-hidden="true">⌄</span></button></div><div class="sticky-mobile-secondary" id="sticky-mobile-secondary" hidden><span>Online con clases en vivo</span></div></div>
+      <div class="sticky-program"><small>Diplomado</small><strong>Ciencia de Datos Aplicada a Negocios</strong><div class="sticky-details"><span data-sticky-range>10 de nov. de 2026 al 10 de mar. de 2027</span><span data-sticky-schedule>Lun. y mié. · 19:30–21:30</span><span>Online con clases en vivo</span></div><div class="sticky-mobile-summary"><div class="sticky-mobile-copy"><strong class="sticky-mobile-name">Ciencia de Datos Aplicada a Negocios</strong><div class="sticky-mobile-primary"><span data-sticky-range>10 de nov. de 2026 al 10 de mar. de 2027</span><span>Online</span></div></div><button class="sticky-mobile-toggle" type="button" aria-label="Mostrar más información del programa" aria-expanded="false" aria-controls="sticky-mobile-secondary"><span aria-hidden="true">⌄</span></button></div><div class="sticky-mobile-secondary" id="sticky-mobile-secondary" hidden><span data-sticky-schedule>Lun. y mié. · 19:30–21:30</span><span>Online con clases en vivo</span></div></div>
       <div class="sticky-data sticky-price"><small>Precio</small><strong>$960.000</strong></div>
       <div class="sticky-data sticky-discount"><small>Matrícula anticipada</small><strong><span class="sticky-discount-desktop">20% dto.</span><span class="sticky-discount-mobile">20% dto.</span></strong></div>
       <a class="btn btn-yellow" href="#contacto">Postular</a>
@@ -491,6 +491,9 @@
     const datesPanel=document.querySelector('#dates-inline-panel');
     const datesToggleButtons=[...document.querySelectorAll('[data-dates-toggle]')];
     datesToggleButtons.forEach(button=>button.addEventListener('click',()=>{const opening=datesPanel.hidden;datesPanel.hidden=!opening;datesToggleButtons.forEach(item=>item.setAttribute('aria-expanded',String(opening)));const label=document.querySelector('[data-dates-label]');label.textContent=opening?'Ocultar fechas':'Ver más fechas';if(opening&&!button.closest('.dates-highlight'))document.querySelector('#proximas-fechas').scrollIntoView({behavior:'smooth',block:'center'});}));
+    const programStart=document.querySelector('[data-program-start]');
+    const programSchedule=document.querySelector('[data-program-schedule]');
+    document.querySelectorAll('input[name="fecha_inicio"]').forEach(option=>option.addEventListener('change',()=>{if(!option.checked)return;programStart.textContent=option.dataset.start;programSchedule.textContent=option.dataset.schedule;document.querySelectorAll('[data-sticky-range]').forEach(item=>item.textContent=option.dataset.range);document.querySelectorAll('[data-sticky-schedule]').forEach(item=>item.textContent=option.dataset.schedule);}));
     const financeModal=document.querySelector('#finance-modal');
     const financeOpen=document.querySelector('[data-finance-open]');
     const financeClose=document.querySelector('.finance-modal-close');
